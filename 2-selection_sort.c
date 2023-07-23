@@ -12,14 +12,15 @@ void swap(int *num1, int *num2)
 	*num2 = temp;
 }
 
-/** 
+/**
  * selection_sort - sorting an array in ascending order
  * @array: array to be sorted
  * @size: size of array
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t i = 0 ,j = 0;
+	size_t i = 0;
+	size_t j = 0;
 	size_t min_idx = 0;
 
 	if (!array || size < 2)
