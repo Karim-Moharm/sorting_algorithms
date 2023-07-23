@@ -50,15 +50,15 @@ int LomutoPartition(int *arr, int start, int end, size_t size)
  * @end: points to last element in the array
  * @size: size of the array
  */
-void quickSortr_recursion(int *arr, int start, int end, size_t size)
+void quickSort_recursion(int *arr, int start, int end, size_t size)
 {
 	int pivot_idx = 0;
 
 	if (start >= end)
 		return;
 	pivot_idx = LomutoPartition(arr, start, end, size);
-	quickSortr_recursion(arr, start, pivot_idx - 1, size);
-	quickSortr_recursion(arr, pivot_idx + 1, end, size);
+	quickSort_recursion(arr, start, pivot_idx - 1, size);
+	quickSort_recursion(arr, pivot_idx + 1, end, size);
 
 }
 
@@ -72,5 +72,5 @@ void quick_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
-	quickSortr_recursion(array, 0, size - 1, size);
+	quickSort_recursion(array, 0, size - 1, size);
 }
