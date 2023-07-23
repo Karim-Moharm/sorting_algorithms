@@ -21,14 +21,14 @@ void swap(int *num1, int *num2)
  *
  * Return: index of pivot 
  */
-u_int32_t LomutoPartition(int *arr, u_int32_t start, u_int32_t end, size_t size)
+int LomutoPartition(int *arr, int start, int end, size_t size)
 {
 	/* implement the algorithm by using pivot as last element */
 	int pivot = arr[end];
-	u_int32_t i = start;
-	u_int32_t j = 0;
+	int i = start;
+	int j = 0;
 
-	for (j = 0; j < end; ++j)
+	for (j = start; j < end; ++j)
 	{
 		if (arr[j] <= pivot)
 		{
@@ -50,9 +50,9 @@ u_int32_t LomutoPartition(int *arr, u_int32_t start, u_int32_t end, size_t size)
  * @end: points to last element in the array
  * @size: size of the array
  */
-void quickSortr_recursion(int *arr, u_int32_t start, u_int32_t end, size_t size)
+void quickSortr_recursion(int *arr, int start, int end, size_t size)
 {
-	u_int32_t pivot_idx = 0;
+	int pivot_idx = 0;
 
 	if (start >= end)
 		return;
