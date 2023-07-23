@@ -33,11 +33,11 @@ int LomutoPartition(int *arr, int start, int end, size_t size)
 		if (arr[j] <= pivot)
 		{
 			swap(&arr[i], &arr[j]);
-			print_array(arr, size);
 			i++;
 		}
 	}
 	swap(&arr[i], &arr[end]);
+	print_array(arr, size);
 	return i;
 }
 
