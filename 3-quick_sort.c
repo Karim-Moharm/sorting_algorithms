@@ -23,7 +23,7 @@ void swap(int *num1, int *num2)
  */
 int LomutoPartition(int *arr, int start, int end, size_t size)
 {
-	/* implement the algorithm by using pivot as last element */
+	/* using pivot as last element */
 	int pivot = arr[end];
 	int i = start;
 	int j = 0;
@@ -46,9 +46,10 @@ int LomutoPartition(int *arr, int start, int end, size_t size)
 
 /**
  * quickSort_recursion - implementation of quick sort algorithm
- * by applying the partition technique to sub arrays of the array using
+ * by applying the partition technique to sub-arrays of the array using
  * recursion
- * @arr: array of int
+ *
+ * @arr: array of integers
  * @start: points to first element in the array (index 0)
  * @end: points to last element in the array
  * @size: size of the array
@@ -67,7 +68,7 @@ void quickSort_recursion(int *arr, int start, int end, size_t size)
 
 /**
  * quick_sort - excute the algorithm
- * @array: array o fint to be sorted
+ * @array: array of int to be sorted
  * @size: size of array
  */
 void quick_sort(int *array, size_t size)
