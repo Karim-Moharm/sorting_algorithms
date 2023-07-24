@@ -1,6 +1,10 @@
 #include "sort.h"
 
-
+/**
+ * swap_nodes - function used to swap node with its previous node
+ * @node1: A pointer to the first node to be swapped.
+ * @node2:  A pointer to the second node to be swapped.
+ */
 void swap_nodes(listint_t *node1, listint_t *node2)
 {
 	if (!node1 || !node2 || node1 == node2)
