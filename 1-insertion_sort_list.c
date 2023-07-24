@@ -15,7 +15,7 @@ void insertion_sort_list(listint_t **list)
 	curr = (*list)->next;
 	while (curr)
 	{
-		while(curr->prev && curr->n < curr->prev->n)
+		while (curr->prev && curr->n < curr->prev->n)
 		{
 			/* swap operation */
 			temp = curr;
@@ -25,15 +25,15 @@ void insertion_sort_list(listint_t **list)
 
 			/* reduce the current pointer */
 			curr = curr->prev;
-			
+
 			temp->next = curr;
 			temp->prev = curr->prev;
 
 			if (curr->prev)
 				curr->prev->next = temp;
 			curr->prev = temp;
-			
-			/** 
+
+			/**
 			 * if the node reached the head of a list
 			 * update the pointer list to that node
 			 */
