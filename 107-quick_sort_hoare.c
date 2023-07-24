@@ -23,7 +23,23 @@ void swap(int *num1, int *num2)
  */
 int HoarePartition(int *arr, int low, int upper, size_t size)
 {
-	;
+	int pivot = arr[upper];
+	int start = low;
+	int end = upper;
+	
+	while (start < end)
+	{
+		 while (arr[start] <= pivot)
+			 start++;
+		 while (arr[end] > pivot)
+			 end--;
+
+		 if (start < end)
+			 swap(&arr[start], &arr[end]);
+	}
+	swap(&arr[start], &arr[upper]);
+	print_array(arr, size);
+	return start;
 }
 
 /**
@@ -53,7 +69,7 @@ void quickSort_recursion(int *arr, int start, int end, size_t size)
  * @array: array of int to be sorted
  * @size: size of array
  */
-void quick_sort(int *array, size_t size)
+void quick_sort_hoare(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
