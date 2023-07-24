@@ -29,17 +29,13 @@ int HoarePartition(int *arr, int low, int upper, size_t size)
 
 	while (start < end)
 	{
-		do 
-		{
+		do {
 			start++;
-		}
-		while (arr[start] < pivot);
+		} while (arr[start] < pivot);
 
-		do 
-		{
+		do {
 			end--;
-		}
-		while(arr[end] > pivot);
+		} while (arr[end] > pivot);
 
 		/* swap only in case start still less than end */
 		if (start < end)
