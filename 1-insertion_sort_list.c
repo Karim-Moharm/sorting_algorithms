@@ -13,8 +13,6 @@ void insertion_sort_list(listint_t **list)
 		return;
 
 	curr = (*list)->next;
-	temp = curr;
-
 	while (curr)
 	{
 		while(curr->prev && curr->n < curr->prev->n)
@@ -24,15 +22,16 @@ void insertion_sort_list(listint_t **list)
 			curr->prev->next = curr->next;
 			if (curr->next)
 				curr->next->prev = curr->prev;
-			
-			curr->next = curr;
-			curr->prev = curr->prev->prev;
 
 			/* reduce the current pointer */
 			curr = curr->prev;
+			
+			temp->next = curr;
+			temp->prev = curr->prev;
+
 			if (curr->prev)
-				curr->prev->next = curr->next;
-			curr->prev = curr->next;
+				curr->prev->next = temp;
+			curr->prev = temp;
 			
 			/** 
 			 * if the node reached the head of a list
