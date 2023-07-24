@@ -35,10 +35,12 @@ int HoarePartition(int *arr, int low, int upper, size_t size)
 			 end--;
 
 		 if (start < end)
+		 {
 			 swap(&arr[start], &arr[end]);
+			 print_array(arr, size);
+		 }
 	}
 	swap(&arr[start], &arr[upper]);
-	print_array(arr, size);
 	return start;
 }
 
