@@ -27,7 +27,26 @@ void swap_nodes(listint_t *node1, listint_t *node2)
  * insertion_sort_list - insertion sort using linked list
  * @list: pointer to the doubly linked list
  */
-/*void insertion_sort_list(listint_t **list)
+void insertion_sort_list(listint_t **list)
 {
-	;
-}*/
+	listint_t *curr = NULL;
+	listint_t *tmp = NULL;
+
+	if (!list || !(*list) || !(*list)->next)
+		return;
+	
+	curr = (*list)->next;
+	tmp = *list;
+
+	while (curr)
+	{
+		tmp = curr;
+		curr = curr->next;
+
+		while (tmp->n < tmp->prev->n && tmp->prev)
+		{
+			swap_nodes(tmp->prev, tmp);
+			print_list(*list);
+		}
+	}
+}
