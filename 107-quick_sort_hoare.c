@@ -24,23 +24,31 @@ void swap(int *num1, int *num2)
 int HoarePartition(int *arr, int low, int upper, size_t size)
 {
 	int pivot = arr[upper];
-	int start = low;
-	int end = upper;
+	int start = low - 1;
+	int end = upper + 1;
 
 	while (start < end)
 	{
-		while (arr[start] <= pivot)
+		do 
+		{
 			start++;
-		while (arr[end] > pivot)
-			end--;
+		}
+		while (arr[start] < pivot);
 
+		do 
+		{
+			end--;
+		}
+		while(arr[end] > pivot);
+
+		/* swap only in case start still less than end */
 		if (start < end)
 		{
 			swap(&arr[start], &arr[end]);
 			print_array(arr, size);
 		}
 	}
-	return (end);
+	return (start);
 }
 
 /**
@@ -61,7 +69,7 @@ void quickSort_recursion(int *arr, int start, int end, size_t size)
 		return;
 	pivot_idx = HoarePartition(arr, start, end, size);
 	quickSort_recursion(arr, start, pivot_idx - 1, size);
-	quickSort_recursion(arr, pivot_idx + 1, end, size);
+	quickSort_recursion(arr, pivot_idx, end, size);
 
 }
 
