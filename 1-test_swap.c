@@ -56,7 +56,7 @@ int main(void)
     n1 = n1->next;
     n2 = n1->next; 
 
-    swap_nodes(n1, n2);
+    swap_nodes(list, n1, n2);
     print_list(list);
     printf("\n");
 

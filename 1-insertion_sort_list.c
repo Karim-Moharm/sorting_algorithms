@@ -5,7 +5,7 @@
  * @node1: A pointer to the first node to be swapped.
  * @node2:  A pointer to the second node to be swapped.
  */
-void swap_nodes(listint_t *node1, listint_t *node2)
+void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 {
 	if (!node1 || !node2 || node1 == node2)
 		return;
@@ -21,6 +21,9 @@ void swap_nodes(listint_t *node1, listint_t *node2)
 	/* address of node1 in node2 and address of node2 in node1 */
 	node1->prev = node2;
 	node2->next = node1;
+
+	if (node1->prev == NULL)
+		*list = node1;
 }
 
 /**
@@ -45,7 +48,7 @@ void insertion_sort_list(listint_t **list)
 
 		while (tmp->n < tmp->prev->n && tmp->prev)
 		{
-			swap_nodes(tmp->prev, tmp);
+			swap_nodes(list, tmp->prev, tmp);
 			print_list(*list);
 		}
 	}
