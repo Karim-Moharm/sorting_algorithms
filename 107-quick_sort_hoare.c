@@ -40,8 +40,7 @@ int HoarePartition(int *arr, int low, int upper, size_t size)
 			 print_array(arr, size);
 		 }
 	}
-	swap(&arr[start], &arr[upper]);
-	return start;
+	return end;
 }
 
 /**
