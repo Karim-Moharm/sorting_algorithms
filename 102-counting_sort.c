@@ -15,16 +15,12 @@ void counting_sort(int *array, size_t size)
 
 	/* finding max element in array */
 	for (i = 1; i < size; i++)
-	{
-		if (max < array[i])
-			max = array[i];
-	}
+		(max < array[i]) ? max = array[i] : max;
 	count_size = max + 1;
 
 	count = malloc(sizeof(int) * count_size);
 	if (!count)
 		return;
-
 	/* setting all element in count to 0 */
 	memset(count, 0, count_size * sizeof(*count));
 
@@ -43,7 +39,7 @@ void counting_sort(int *array, size_t size)
 	{
 		output[--count[array[i]]] = array[i];
 	}
-	
+
 	/* copying element from output array to array */
 	for (i = 0; i < size; i++)
 		array[i] = output[i];
