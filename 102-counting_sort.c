@@ -24,7 +24,7 @@ void counting_sort(int *array, size_t size)
 	if (!count)
 		return;
 	/* setting all element in count to 0 */
-	memset(count, 0, count_size * sizeof(*count));
+	/*memset(count, 0, count_size * sizeof(*count));*/
 
 	for (i = 0; i < size; i++)
 		count[array[i]]++;
