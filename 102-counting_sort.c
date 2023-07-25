@@ -1,4 +1,23 @@
 #include "sort.h"
+#include <string.h>
+
+/**
+ * max - get the max element in array
+ *
+ * @arr: array of integer
+ * @size: size of array
+ * Return: max element in array
+ */
+int max(int *arr, size_t size)
+{
+	size_t i = 0;
+	int max = arr[0];
+
+	for (i = 1; i < size; i++)
+		if (arr[i] > max)
+			max = arr[i];
+	return (max);
+}
 
 /**
 * counting_sort - count sort algorithm
@@ -7,24 +26,21 @@
 */
 void counting_sort(int *array, size_t size)
 {
-	size_t i = 0;
-	int max = array[0];
-	size_t count_size = 0;
+	size_t i = 0, count_size = 0;
+	int max_elem = 0;
 	int *count = NULL, *output = NULL;
 
 	if (!array || size < 2)
 		return;
 	/* finding max element in array */
-	for (i = 1; i < size; i++)
-		(max < array[i]) ? max = array[i] : max;
-	count_size = max + 1;
+	max_elem = max(array, size);
+	count_size = max_elem + 1;
 
 	count = malloc(sizeof(int) * count_size);
 	if (!count)
 		return;
 	/* setting all element in count to 0 */
-	/*memset(count, 0, count_size * sizeof(*count));*/
-
+	memset(count, 0, count_size * sizeof(*count));
 	for (i = 0; i < size; i++)
 		count[array[i]]++;
 
