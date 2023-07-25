@@ -10,8 +10,8 @@ void counting_sort(int *array, size_t size)
 {
 	size_t i = 0;
 	int max = array[0];
-	int count_size = 0;
-	int *count = NULL;
+	size_t count_size = 0;
+	int *count = NULL, *output = NULL;
 
 	/* finding max element in array */
 	for (i = 1; i < size; i++)
@@ -22,14 +22,29 @@ void counting_sort(int *array, size_t size)
 	count_size = max + 1;
 
 	count = malloc(sizeof(int) * count_size);
-	print_array(count, count_size);
+	if (!count)
+		return;
+
 	/* setting all element in count to 0 */
 	memset(count, 0, count_size * sizeof(*count));
-	print_array(count, count_size);
-	printf("\n");
 
 	for (i = 0; i < size; i++)
-		;
+		count[array[i]]++;
 
+	/* update count array so it can store index of elements */
+	for (i = 1; i < count_size; i++)
+		count[i] = count[i] + count[i - 1];
+	print_array(count, count_size);
 
+	output = malloc(sizeof(int) * size);
+	if (!output)
+		return;
+	for (i = 0; i < size; i++)
+	{
+		output[--count[array[i]]] = array[i];
+	}
+	
+	/* copying element from output array to array */
+	for (i = 0; i < size; i++)
+		array[i] = output[i];
 }
