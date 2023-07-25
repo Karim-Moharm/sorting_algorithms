@@ -13,6 +13,8 @@ void counting_sort(int *array, size_t size)
 	size_t count_size = 0;
 	int *count = NULL, *output = NULL;
 
+	if (!array || size < 2)
+		return;
 	/* finding max element in array */
 	for (i = 1; i < size; i++)
 		(max < array[i]) ? max = array[i] : max;
@@ -35,12 +37,13 @@ void counting_sort(int *array, size_t size)
 	output = malloc(sizeof(int) * size);
 	if (!output)
 		return;
-	for (i = 0; i < size; i++)
+	i = size;
+	while (i > 0)
 	{
-		output[count[array[i]] - 1] = array[i];
+		i--;
 		count[array[i]]--;
+		output[count[array[i]]] = array[i];
 	}
-
 	/* copying element from output array to array */
 	for (i = 0; i < size; i++)
 		array[i] = output[i];
